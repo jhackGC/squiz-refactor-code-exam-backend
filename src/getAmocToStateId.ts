@@ -1,4 +1,7 @@
 export function getAmocToStateId(state: string): string {
+  // Issues: the state input is not validated
+  // Issues: no break leads to fall-through behavior
+  // Issues: no default case to handle unexpected input
   switch (state) {
     case "NT":
       return "IDD";

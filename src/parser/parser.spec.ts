@@ -1,7 +1,8 @@
-import { parseXml } from "./parser";
 import fs from "fs";
 import path from "path";
+import { parseXml } from "./parser";
 
+// Issues: No dependencies mocking
 describe("parsing xml", () => {
   it("should parse xml", (done) => {
     const xml = fs.readFileSync(path.resolve(__dirname, "./IDD10307.amoc.xml"));
