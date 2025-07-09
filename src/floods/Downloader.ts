@@ -7,6 +7,9 @@ export class Downloader {
     const client = new Client();
     client.ftp.verbose = true;
     try {
+      // Issues: Security -> the host is hardcoded, and the connection is not secure
+      // Solution: use environment variables for configuration, and ensure secure connections
+
       await client.access({
         host: "ftp.bom.gov.au",
         secure: false,
@@ -29,11 +32,13 @@ export class Downloader {
 
       return data;
     } catch (err) {
+      // Issues: no proper logging approach is used
+      // Solution: use a logging library for better logging
       console.log(key + " file not found");
+      // Issues: silent failure
+      // Solution: re throw an error or return a specific message
       return "";
     }
-
-    client.close();
   }
 
   readData(key: string): string {
