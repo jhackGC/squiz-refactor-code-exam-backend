@@ -1,5 +1,6 @@
 import { getAmocToStateId } from "./getAmocToStateId";
 
+// Issues: no unhappy path tests
 describe("getAmocToStateId", () => {
   test("that it returns all states", () => {
     expect(getAmocToStateId("NT")).toEqual("IDD");

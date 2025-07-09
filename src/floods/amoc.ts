@@ -30,6 +30,9 @@ export async function getWarnings() {
 
     return warns;
   } catch (err) {
+    // Issues: no proper logging approach is used
+    // Issue: silent failure
+    // Issue: no error handling for the FTP connection
     console.log(err);
   }
 
@@ -37,7 +40,5 @@ export async function getWarnings() {
 }
 
 export function getWarning(id: string) {
-  // Issue: Same connection pooling problem as getWarnings() - creates new client per call
-  // Solution: Use same connection pool pattern to reuse FTP connections efficiently
   //
 }

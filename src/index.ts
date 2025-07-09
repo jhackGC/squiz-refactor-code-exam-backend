@@ -52,6 +52,7 @@ app.get("/warning/:id", async (req, res) => {
     const warningParser = new FloodWarningParser(warning);
     const text = await downloader.downloadText(xmlid);
 
+    // Issues: no error handling for the XML parsing
     res.send({ ...(await warningParser.getWarning()), text: text || "" });
   } catch (error) {
     console.log(error);
